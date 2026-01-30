@@ -1,5 +1,6 @@
 import { fetchTransaction } from "./Service/api";
 import type { Transaction } from "./Type/transactionInterface";
+import { normalizeJson } from "./Utils/normalizar";
 // 1 - Acesse os dados da api: https://api.origamid.dev/json/transacoes.json
 
 // 2 - Mostre em uma tabela os dados de cada transação.
@@ -23,6 +24,10 @@ import type { Transaction } from "./Type/transactionInterface";
 // 6 - Normalize os dados da API se achar necessário.
 
 
-const dados = fetchTransaction<Transaction[]>("https://api.origamid.dev/json/transacoes.json")
+const dataAPI = await fetchTransaction<Transaction[]>("https://api.origamid.dev/json/transacoes.json")
+const dataNormalized = dataAPI ? normalizeJson(dataAPI) : null
+
+
+
 
 
