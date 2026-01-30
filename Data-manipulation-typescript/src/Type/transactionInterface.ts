@@ -7,6 +7,6 @@ export interface Transaction{
     id: number
     nome: string
     status: "Paga" | "Recusada pela operadora de cartão" | "Paga"
-    valor_R$: string
+    valor_r$: string
 
 }
