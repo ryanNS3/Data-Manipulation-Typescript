@@ -1,20 +1,33 @@
+import { isTransaction, type Transaction, type TransactionNormalized } from "../Type/transactionInterface";
+import { moneyToNumber } from "./moneyToNumber";
 
 
-export function normalizeJson<T extends Record<string, any>>(data: T[]): Record<string, T[keyof T]>[] | null {
 
-    if (data){
-        return(
-            data.map((obj) =>{
-                const newObject: Record<string, T[keyof T]> = {}
-                Object.entries(obj).forEach(([key, value]) =>{
-                    const normalizeKey = key.toLowerCase().replace(/\s+/g, "_").replace(/[()]/g, "");
-                    newObject[normalizeKey] = value
-                })
-                return newObject
-            })
-           )
+
+export function normalizeJson(json: any): TransactionNormalized[] | null {
+
+    if (json && isTransaction(json)){
+         return json.map((item) =>{
+            const newObject: TransactionNormalized = {
+            cliente_novo: item["Cliente Novo"],
+            data: item.Data,
+            email: item.Email,
+            forma_de_pagamento: item["Forma de Pagamento"],
+            id: item.ID,
+            nome: item.Nome,
+            status: item.Status,
+            valor_r$: moneyToNumber( item["Valor (R$)"])
+    
+
+        }
+
+        return newObject
+
+        })
+        
+        
+        
     }
-
     else{
         return null
     }
