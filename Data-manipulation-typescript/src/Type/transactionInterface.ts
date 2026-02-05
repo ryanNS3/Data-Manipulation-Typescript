@@ -1,32 +1,7 @@
-// Cliente Novo
-// : 
-// 1
-// Data
-// : 
-// "01/09/2022 01:21"
-// Email
-// : 
-// "o.hill@email.com"
-// Forma de Pagamento
-// : 
-// "Cartão de Crédito"
-// ID
-// : 
-// 32323221
-// Nome
-// : 
-// "Owen Hill"
-// Status
-// : 
-// "Paga"
-// Valor (R$)
-// : 
-// "452,00"
 
 export function isTransaction(data:unknown): data is Transaction[]{
     console.log(data)
     if (data && Array.isArray(data) && typeof data[0] === "object"){
-        console.log("Cliente Novo" in data[0])
         const isIncludeKeys = "Cliente Novo" in data[0] && "Data" in data[0] && "Email" in data[0] &&  "Forma de Pagamento" in data[0]
         if (isIncludeKeys){
             return true
