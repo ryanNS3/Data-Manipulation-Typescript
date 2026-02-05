@@ -7,7 +7,7 @@ import { moneyToNumber } from "./moneyToNumber";
 export function normalizeJson(json: any): TransactionNormalized[] | null {
 
     if (json && isTransaction(json)){
-         return json.map((item) =>{
+        return json.map((item) =>{
             const newObject: TransactionNormalized = {
             cliente_novo: item["Cliente Novo"],
             data: item.Data,
@@ -17,19 +17,13 @@ export function normalizeJson(json: any): TransactionNormalized[] | null {
             nome: item.Nome,
             status: item.Status,
             valor_r$: moneyToNumber( item["Valor (R$)"])
-    
+            }
 
-        }
-
-        return newObject
+            return newObject
 
         })
-        
-        
-        
     }
     else{
         return null
     }
- 
 }
