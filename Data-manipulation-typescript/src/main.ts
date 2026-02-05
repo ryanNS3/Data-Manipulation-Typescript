@@ -4,7 +4,7 @@ import { normalizeJson } from "./Utils/normalizar";
 
 // 1 - Acesse os dados da api: https://api.origamid.dev/json/transacoes.json
 
-// 2 - Mostre em uma tabela os dados de cada transação.
+// 2 - Mostre em uma tabela os dados de cada transação. - check
 
 // 3 - Calcule:
 
@@ -28,5 +28,24 @@ import { normalizeJson } from "./Utils/normalizar";
 
 const dataAPI = await fetchTransaction<Transaction[]>("https://api.origamid.dev/json/transacoes.json")
 const dataAPINormalizeted = normalizeJson(dataAPI)
+const itensTabela = document.getElementById("itensTabela")
+
 
 console.log(dataAPINormalizeted)
+// mostrando as transaçoes na tabela
+if (dataAPINormalizeted && itensTabela instanceof HTMLElement){
+    dataAPINormalizeted.map((item) =>{
+       itensTabela.innerHTML += `
+        <tr>
+            <td>${item.id}</td>
+            <td>${item.nome}</td>
+            <td>${item.email}</td>
+            <td>${item.cliente_novo}</td>
+            <td>${item.data}</td>
+            <td>${item.status}</td>
+            <td>${item.valor_r$}</td>
+            <td>${item.forma_de_pagamento}</td>
+        </tr>
+       `
+    })
+}
