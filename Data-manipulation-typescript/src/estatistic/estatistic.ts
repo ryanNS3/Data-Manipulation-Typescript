@@ -16,6 +16,8 @@ import type { TransactionNormalized } from "../Type/transactionInterface";
 
 export function estatistic(data: TransactionNormalized[]){
     data.reduce((acc, atual) =>{
+        acc.somaTotalValores = acc.somaTotalValores + atual.valor_r$;
+
         return acc
     },{
         somaTotalValores: 0,
