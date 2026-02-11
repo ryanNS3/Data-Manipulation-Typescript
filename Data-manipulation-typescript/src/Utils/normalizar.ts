@@ -1,4 +1,4 @@
-import { isTransaction, type Transaction, type TransactionNormalized } from "../Type/transactionInterface";
+import { isTransaction, type TransactionNormalized } from "../Type/transactionInterface";
 import { moneyToNumber } from "./moneyToNumber";
 
 
