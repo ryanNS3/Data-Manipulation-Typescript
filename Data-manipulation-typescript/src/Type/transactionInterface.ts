@@ -34,5 +34,5 @@ export interface TransactionNormalized{
     id: number
     nome: string
     status: "Paga" | "Recusada pela operadora de cartão" | "Paga"
-    valor_r$: number 
+    valor_r$: number | "-"
 }

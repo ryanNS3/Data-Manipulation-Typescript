@@ -16,7 +16,13 @@ import type { TransactionNormalized } from "../Type/transactionInterface";
 
 export function estatistic(data: TransactionNormalized[]){
     data.reduce((acc, atual) =>{
-        acc.somaTotalValores = acc.somaTotalValores + atual.valor_r$;
+
+        if (typeof atual.valor_r$ == "number"){
+            acc.somaTotalValores = acc.somaTotalValores + atual.valor_r$;
+
+        }
+
+        // Contagem por meio de pagamento
         if (atual.forma_de_pagamento == "Boleto"){
             acc.transacaoBoleto += 1
         }
@@ -24,6 +30,17 @@ export function estatistic(data: TransactionNormalized[]){
         else if (atual.forma_de_pagamento == "Cartão de crédito"){
             acc.transacaoCredito += 1
         }
+
+        // contagem por status
+        if (atual.status == "Paga"){
+            acc.statusPago += 1
+        }
+        else if (atual.status == "Recusada pela operadora de cartão"){
+            acc.statusRecusadoOperadoraCartoa += 1
+        }
+
+        // Total de vendas por dia da semana
+
 
         
 

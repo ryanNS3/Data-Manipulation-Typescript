@@ -1,6 +1,6 @@
 
 
-export function moneyToNumber(money: string): number | null | "-"{
+export function moneyToNumber(money: string): number | "-"{
     if (money && typeof money === "string" && money != "-"){
         const moneyToNumber = Number(money.replace(",","."))
         return moneyToNumber
@@ -10,7 +10,7 @@ export function moneyToNumber(money: string): number | null | "-"{
     }
 
     else{
-        return null
+        return "-"
     }
 
 
