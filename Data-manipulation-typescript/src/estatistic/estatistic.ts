@@ -40,7 +40,29 @@ export function estatistic(data: TransactionNormalized[]){
         }
 
         // Total de vendas por dia da semana
+        const data = new Date(atual.data)
+        const diaDaSemana = data.toLocaleDateString("pt-BR",{
+            weekday: "long"
+        })
 
+        switch (diaDaSemana){
+            case "domingo":
+                break
+            case "segunda-feira":
+                break
+            case "terça-feira":
+                break
+            case "quarta-feira":
+                break
+            case "quinta-feira":
+                break
+            case "sexta-feira":
+                break
+            case "sábado":
+                break
+            
+
+        }
 
         
 
