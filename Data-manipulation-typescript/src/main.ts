@@ -35,6 +35,11 @@ const linhasTabela = document.getElementById("itensTabela")
 console.log(dataAPINormalizeted)
 // mostrando as transaçoes na tabela
 console.log(estatistic(dataAPINormalizeted))
+
+
+
+
+
 if (dataAPINormalizeted && linhasTabela instanceof HTMLElement){
     dataAPINormalizeted.map((item) =>{
        linhasTabela.innerHTML += `
@@ -42,7 +47,7 @@ if (dataAPINormalizeted && linhasTabela instanceof HTMLElement){
             <td>${item.id}</td>
             <td>${item.nome}</td>
             <td>${item.email}</td>
-            <td>${item.cliente_novo}</td>
+            <td>${item.cliente_novo == 1 ? "Sim" : "não"}</td>
             <td>${item.data}</td>
             <td>${item.status}</td>
             <td>${item.valor_r$}</td>
