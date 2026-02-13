@@ -14,7 +14,8 @@ import type { TransactionNormalized } from "../Type/transactionInterface";
 
 
 
-export function estatistic(data: TransactionNormalized[]){
+export function estatistic(data: TransactionNormalized[] | null){
+    if (data)
     data.reduce((acc, atual) =>{
 
         if (typeof atual.valor_r$ == "number"){
@@ -45,26 +46,72 @@ export function estatistic(data: TransactionNormalized[]){
             weekday: "long"
         })
 
+
+
+         
+        
+
+
         switch (diaDaSemana){
             case "domingo":
+                acc.totalVendasPDia[0] += 1
+                
                 break
             case "segunda-feira":
+                acc.totalVendasPDia[1] += 1
+                
                 break
             case "terça-feira":
+                acc.totalVendasPDia[2] += 1
+                
                 break
             case "quarta-feira":
+                acc.totalVendasPDia[3] += 1
+                
                 break
             case "quinta-feira":
+                acc.totalVendasPDia[4] += 1
+                
                 break
             case "sexta-feira":
+                acc.totalVendasPDia[5] += 1
+                
                 break
             case "sábado":
+                acc.totalVendasPDia[6] += 1
+
                 break
             
 
         }
+        const maiorItemDosDiasDaSemana = Math.max(...acc.totalVendasPDia)
+        const indiceMaiorItemDosDiasDaSemana = acc.totalVendasPDia.indexOf(maiorItemDosDiasDaSemana)
 
-        
+        switch (indiceMaiorItemDosDiasDaSemana){
+            case 0:
+                acc.diaComMaisVendas = "Domingo"
+                break
+            case 1:
+                acc.diaComMaisVendas = "Segunda"
+                break
+            case 2:
+                acc.diaComMaisVendas = "Terça"
+                break
+            case 3:
+                acc.diaComMaisVendas = "Quarta"
+                break
+            case 4:
+                acc.diaComMaisVendas = "Quinta"
+                break
+            case 5:
+                acc.diaComMaisVendas = "Sexta"
+                break
+            case 6:
+                acc.diaComMaisVendas = "Sábado"
+                break
+
+        }
+
 
         return acc
     },{
@@ -73,8 +120,8 @@ export function estatistic(data: TransactionNormalized[]){
         transacaoBoleto:0,
         statusPago:0,
         statusRecusadoOperadoraCartoa:0,
-        totalVendasPDia: [],
+        totalVendasPDia: [0,0,0,0,0,0],
         diaComMaisVendas:""
-        
+                 //////////////////////////////////////
     })
 }
