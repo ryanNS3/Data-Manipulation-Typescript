@@ -20,6 +20,7 @@ export function estatistic(data: TransactionNormalized[] | null){
     return data.reduce((acc, atual) =>{
 
         if (typeof atual.valor_r$ == "number"){
+            console.log(atual.valor_r$)
             acc.somaTotalValores = acc.somaTotalValores + atual.valor_r$;
 
         }
