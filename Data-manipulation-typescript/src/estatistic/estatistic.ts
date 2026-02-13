@@ -15,6 +15,7 @@ import type { TransactionNormalized } from "../Type/transactionInterface";
 
 
 export function estatistic(data: TransactionNormalized[] | null){
+    console.log(data)
     if (data)
     data.reduce((acc, atual) =>{
 
@@ -47,11 +48,6 @@ export function estatistic(data: TransactionNormalized[] | null){
         })
 
 
-
-         
-        
-
-
         switch (diaDaSemana){
             case "domingo":
                 acc.totalVendasPDia[0] += 1
@@ -82,7 +78,6 @@ export function estatistic(data: TransactionNormalized[] | null){
 
                 break
             
-
         }
         const maiorItemDosDiasDaSemana = Math.max(...acc.totalVendasPDia)
         const indiceMaiorItemDosDiasDaSemana = acc.totalVendasPDia.indexOf(maiorItemDosDiasDaSemana)
@@ -109,9 +104,7 @@ export function estatistic(data: TransactionNormalized[] | null){
             case 6:
                 acc.diaComMaisVendas = "Sábado"
                 break
-
         }
-
 
         return acc
     },{
