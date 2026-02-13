@@ -1,3 +1,4 @@
+import { estatistic } from "./estatistic/estatistic";
 import { fetchTransaction } from "./Service/api";
 import type { Transaction } from "./Type/transactionInterface";
 import { normalizeJson } from "./Utils/normalizar";
@@ -28,14 +29,15 @@ import { normalizeJson } from "./Utils/normalizar";
 
 const dataAPI = await fetchTransaction<Transaction[]>("https://api.origamid.dev/json/transacoes.json")
 const dataAPINormalizeted = normalizeJson(dataAPI)
-const itensTabela = document.getElementById("itensTabela")
+const linhasTabela = document.getElementById("itensTabela")
 
 
 console.log(dataAPINormalizeted)
 // mostrando as transaçoes na tabela
-if (dataAPINormalizeted && itensTabela instanceof HTMLElement){
+console.log(estatistic(dataAPINormalizeted))
+if (dataAPINormalizeted && linhasTabela instanceof HTMLElement){
     dataAPINormalizeted.map((item) =>{
-       itensTabela.innerHTML += `
+       linhasTabela.innerHTML += `
         <tr>
             <td>${item.id}</td>
             <td>${item.nome}</td>
