@@ -17,7 +17,7 @@ import type { TransactionNormalized } from "../Type/transactionInterface";
 export function estatistic(data: TransactionNormalized[] | null){
     console.log(data)
     if (data)
-    data.reduce((acc, atual) =>{
+    return data.reduce((acc, atual) =>{
 
         if (typeof atual.valor_r$ == "number"){
             acc.somaTotalValores = acc.somaTotalValores + atual.valor_r$;
