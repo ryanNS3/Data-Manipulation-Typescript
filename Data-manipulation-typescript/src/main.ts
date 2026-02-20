@@ -39,7 +39,6 @@ console.log(estatistic(dataAPINormalizeted))
 
 
 
-
 if (dataAPINormalizeted && linhasTabela instanceof HTMLElement){
     dataAPINormalizeted.map((item) =>{
        linhasTabela.innerHTML += `
