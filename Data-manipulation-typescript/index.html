@@ -4,17 +4,40 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./estatistica.css">
+    <link rel="stylesheet" href="./global.css">
     <title>data-manipulation-typescript</title>
   </head>
   <body>
     <div id="app"></div>
 
-    <!-- Area da estatistica -->
-    <section id="estatistica">
-      <div></div>
-    </section>
+    <nav aria-label="navegação principal" class="navegação-principal">
+      <ul id="lista-navegação">
+        <li class="selecionado-navegação">
+          <a href="/Data-manipulation-typescript/index.html">Estatistica</a>
+        </li>
+
+        <li>
+          <a href="/Data-manipulation-typescript/tabela.html">Dados</a>
+        </li>      
+      </ul>
+    </nav>
+
+  <!-- Area da estatistica -->
+  <section id="estatistica">
+    <div id="card-total"></div>
+    <div id="card-qtd-metodo-pagamento"></div>
+  </section>
+
+
+  <section id="graficos">
+    <div id="grafico-vendas-dia-semana"></div>
+    <div id="grafico-status pagamento"></div>
+  </section>
+
+   
     <!-- Tabela com todos os dados -->
-    <table>
+    <!-- <table>
       <thead>
          <tr>
           <caption>Tabela</caption>
@@ -36,7 +59,7 @@
 
       </tbody>
 
-    </table>
+    </table> -->
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
