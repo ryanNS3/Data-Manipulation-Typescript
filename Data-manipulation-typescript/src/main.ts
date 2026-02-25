@@ -3,6 +3,7 @@ import { fetchTransaction } from "./Service/api";
 import type { Transaction } from "./Type/transactionInterface";
 import { normalizeJson } from "./Utils/normalizar";
 
+
 // 1 - Acesse os dados da api: https://api.origamid.dev/json/transacoes.json
 
 // 2 - Mostre em uma tabela os dados de cada transação. - check
