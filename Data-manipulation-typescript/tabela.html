@@ -6,6 +6,42 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <nav aria-label="navegação principal" id="navegacao-principal">
+      <ul id="lista-navegação">
+        <li class="selecionado">
+          <a href="/Data-manipulation-typescript/index.html">Estatistica</a>
+        </li>
+
+        <li>
+          <a href="/tabela.html">Dados</a>
+        </li>      
+      </ul>
+    </nav>
+
+    <!-- Tabela com todos os dados -->
+    <table>
+      <thead>
+         <tr>
+          <caption>Tabela</caption>
+        </tr>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Cliente novo</th>
+          <th>Data</th>
+          <th>Status</th>
+          <th>Valor</th>
+          <th>Forma de pagamento</th>
+          
+        </tr>
+      </thead>
+
+      <tbody id="itensTabela">
+
+      </tbody>
+
+    </table>  
+    <script type="module" src="./src/main.ts"></script>  
 </body>
 </html>
