@@ -1,4 +1,6 @@
-
+.titulo-principal{
+    margin-bottom: 24px;
+}
 /* Navegação */
 #navegacao-principal{
     display: flex;
@@ -38,22 +40,34 @@
 
 }
 #card-total{
-    padding: 22px 27px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 56px;
     border-radius: 16px;
     background-color: #4F0EF3;
 }
 
+#card-total h2, #card-total p{
+    color: white;
+}
 
 #card-qtd-metodo-pagamento{
-    padding: 16px 24px;
+    padding: 28px 32px;
     background-color: rgb(rgba(255, 255, 255, 0.548));
     box-shadow: 0px 4px 16px 8px rgba(186, 186, 186, 0.2);
     border-radius: 16px;
     border: 2px solid white;
-
 }
-#inner-card-qtd-pagamento{
+
+
+.imagem-titulo{
     display: flex;
-    justify-content: space-between;
-    
+    gap: 10px;
+}
+
+#inner-card-qtd-pagamento{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 30px; 
 }

@@ -1,8 +1,16 @@
+/* Reset global de margem e padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
 body{
   background-image: url("./public/fundo.png");
 }
 
-h1{
+.h1{
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: normal;
