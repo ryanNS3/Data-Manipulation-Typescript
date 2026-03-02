@@ -5,6 +5,44 @@
   box-sizing: border-box;
 }
 
+.titulo-principal{
+    margin-bottom: 24px;
+}
+/* Navegação */
+#navegacao-principal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#lista-navegação{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    /* min-width: 345px; */
+    border: 1px solid #D4D4D4;
+    border-radius: 32px;
+    place-content: center;
+}
+
+#lista-navegação li a{
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 32px;
+    padding: 20px 32px;
+
+}
+
+#lista-navegação .selecionado{
+    display: block;
+    box-sizing: border-box;
+    border-radius: 32px;
+    color: white;
+    background-color: #4F0EF3;
+
+}
+
+
 
 body{
   background-image: url("./public/fundo.png");

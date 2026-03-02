@@ -1,36 +1,6 @@
 .titulo-principal{
     margin-bottom: 24px;
 }
-/* Navegação */
-#navegacao-principal{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#lista-navegação{
-    display: flex;
-    /* min-width: 345px; */
-    border: 1px solid #D4D4D4;
-    border-radius: 32px;
-    place-content: center;
-}
-
-#lista-navegação li a{
-    display: block;
-    box-sizing: border-box;
-    border-radius: 32px;
-    padding: 20px 32px;
-
-}
-
-#lista-navegação .selecionado{
-    display: block;
-    box-sizing: border-box;
-    border-radius: 32px;
-    color: white;
-    background-color: #4F0EF3;
-
-}
 
 /* Seção de valor total e formas de pagamento */
 #estatistica{
