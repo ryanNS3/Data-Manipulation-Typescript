@@ -15,18 +15,36 @@ export function statusPagamento(id_grafico: string, estatistica: EstatisticInter
     // medidindo a % de representação em relção ao total de transações para colocar no width do css
 
     // a partir dessa lista eu vou ordernar do maior para o menor 
-    const maiorParaMenor = [0,0,0]
+    const listaStatus = [
+        {nome:"Pago",
+        valor: pago,
+        porcentagem: pago/totalTransancoes * 100
+        },
 
+        {nome:"Recusado",
+        valor: recusado,
+        porcentagem: recusado/totalTransancoes * 100
+        },
 
-    const style = "display:flex;"
-
+         {nome:"Aguardando",
+            valor: aguardando,
+            porcentagem: aguardando/totalTransancoes * 100
+        },
+    ]
+// faco a comparcao do item A para o Item B 
+    const maiorParaMenor = listaStatus.sort((a,b)=> b.valor - a.valor)
     if (grafico instanceof HTMLElement){
-        grafico.innerHTML= `
-            <div class="item-status-pagamento">
-                <p class="h5">Pago</p>
-                <div style={} class="barra-status-pagamento">1340</div>
+        maiorParaMenor.map((item,index) =>{
+             grafico.innerHTML+= `
+            <div  class="item-status-pagamento">
+                <p class="h5">${item.nome}</p>
+                <div style=width:${item.porcentagem}% class="barra-status-pagamento ${index == 0 ? "maior-item-status-pagamento": ""}">
+                    <p class="h6">${item.valor}</p>
+                </div>
             </div>
         
         `
+        })
+       
     }
 }
