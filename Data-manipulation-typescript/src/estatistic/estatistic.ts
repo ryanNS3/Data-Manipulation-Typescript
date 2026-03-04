@@ -14,10 +14,10 @@ import type { TransactionNormalized } from "../Type/transactionInterface";
 
 
 
-export function estatistic(data: TransactionNormalized[] | null){
+export function estatistic(data: TransactionNormalized[] | null): EstatisticInterface | null |undefined{
     console.log(data)
     if (data)
-    return data.reduce((acc, atual) =>{
+    return data.reduce((acc, atual) =>{ 
 
         if (typeof atual.valor_r$ == "number"){
             console.log(atual.valor_r$)
@@ -39,7 +39,11 @@ export function estatistic(data: TransactionNormalized[] | null){
             acc.statusPago += 1
         }
         else if (atual.status == "Recusada pela operadora de cartão"){
-            acc.statusRecusadoOperadoraCartoa += 1
+            acc.statusRecusadoOperadoraCartao += 1
+        }
+
+        else if (atual.status == "Aguardando pagamento"){
+            acc.statusAguardando =+ 1
         }
 
         // Total de vendas por dia da semana
@@ -113,9 +117,20 @@ export function estatistic(data: TransactionNormalized[] | null){
         transacaoCredito:0,
         transacaoBoleto:0,
         statusPago:0,
-        statusRecusadoOperadoraCartoa:0,
+        statusRecusadoOperadoraCartao:0,
+        statusAguardando:0,
         totalVendasPDia: [0,0,0,0,0,0],
         diaComMaisVendas:""
-                 //////////////////////////////////////
     })
+}
+
+export interface EstatisticInterface{
+        somaTotalValores: number,
+        transacaoCredito: number,
+        transacaoBoleto:number,
+        statusPago:number,
+        statusRecusadoOperadoraCartao: number,
+        statusAguardando: number,
+        totalVendasPDia: number[],
+        diaComMaisVendas:string
 }
