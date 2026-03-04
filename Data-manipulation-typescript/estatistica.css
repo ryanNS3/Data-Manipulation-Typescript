@@ -71,12 +71,7 @@
     border-radius: 64px;
     background-color: #DBDBDB;
 }
-
-.item-status-pagamento p{
-    margin-bottom: 14px;
-}
-
-.item-selecionado-status-pagamento{
-    
+.maior-item-status-pagamento{
+    background-color: #0EF36D;
 }
 
