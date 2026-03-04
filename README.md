@@ -1,5 +1,8 @@
 # Data-Manipulation-Typescript
+![tela-inicial-projeto](https://github.com/user-attachments/assets/c50c88ec-c068-4c5b-ad28-e642c6c0bfe7)
 O objetivo desse repositorio e treinar a manipulação de dados em formato JSON utilizando type guard e type safety para assegurar a integridade da aplicação. Alem disso, todos os dados serão obtidos via API
+
+
 
 ## Desafio proposto
 1 - Acesse os dados da api: https://api.origamid.dev/json/transacoes.json
