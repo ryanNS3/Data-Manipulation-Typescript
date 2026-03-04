@@ -14,7 +14,7 @@ import type { TransactionNormalized } from "../Type/transactionInterface";
 
 
 
-export function estatistic(data: TransactionNormalized[] | null): EstatisticInterface | null |undefined{
+export function estatistic(data: TransactionNormalized[] | null): EstatisticInterface | undefined{
     console.log(data)
     if (data)
     return data.reduce((acc, atual) =>{ 
