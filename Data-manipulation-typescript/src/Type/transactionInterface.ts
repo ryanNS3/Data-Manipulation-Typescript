@@ -1,6 +1,5 @@
 
 export function isTransaction(data:unknown): data is Transaction[]{
-    console.log(data)
     if (data && Array.isArray(data) && typeof data[0] === "object"){
         const isIncludeKeys = "Cliente Novo" in data[0] && "Data" in data[0] && "Email" in data[0] &&  "Forma de Pagamento" in data[0]
         if (isIncludeKeys){
