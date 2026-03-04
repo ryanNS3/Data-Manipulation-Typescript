@@ -46,6 +46,7 @@
 
 body{
   background-image: url("./public/fundo.png");
+  background-repeat: no-repeat;
 }
 
 .h1{
@@ -87,9 +88,9 @@ body{
 
 .h6{
     font-family: "Poppins", sans-serif;
-    font-weight: 500;
+    font-weight: 600;
     font-style: normal;
-    font-size: 0,87rem;
+    font-size: 0.87rem;
 }
 
 
