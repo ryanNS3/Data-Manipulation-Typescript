@@ -49,6 +49,8 @@ export function estatistic(data: TransactionNormalized[] | null): EstatisticInte
             weekday: "long"
         })
 
+        console.log(diaDaSemana)
+
 
         switch (diaDaSemana){
             case "domingo":
