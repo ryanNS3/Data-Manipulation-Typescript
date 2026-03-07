@@ -1,6 +1,13 @@
 import type { EstatisticInterface } from "./estatistic";
 
 
+export function vendasPorDia(id_grafico: string, estatistica: EstatisticInterface){
+    
+
+
+
+}
+
 export function statusPagamento(id_grafico: string, estatistica: EstatisticInterface){
     const grafico = document.getElementById(id_grafico)
 

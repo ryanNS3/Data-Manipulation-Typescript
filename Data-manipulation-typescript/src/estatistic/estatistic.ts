@@ -15,14 +15,11 @@ import type { TransactionNormalized } from "../Type/transactionInterface";
 
 
 export function estatistic(data: TransactionNormalized[] | null): EstatisticInterface | undefined{
-    console.log(data)
     if (data)
     return data.reduce((acc, atual) =>{ 
 
         if (typeof atual.valor_r$ == "number"){
-            console.log(atual.valor_r$)
             acc.somaTotalValores = acc.somaTotalValores + atual.valor_r$;
-
         }
 
         // Contagem por meio de pagamento
@@ -119,7 +116,7 @@ export function estatistic(data: TransactionNormalized[] | null): EstatisticInte
         statusPago:0,
         statusRecusadoOperadoraCartao:0,
         statusAguardando:0,
-        totalVendasPDia: [0,0,0,0,0,0],
+        totalVendasPDia: [0,0,0,0,0,0,0],
         diaComMaisVendas:""
     })
 }
