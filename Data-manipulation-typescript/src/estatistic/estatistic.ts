@@ -1,4 +1,5 @@
 import type { TransactionNormalized } from "../Type/transactionInterface";
+import { dateValidate } from "../Utils/dateValidate";
 
 
 // 3.1 - Soma total dos valores
@@ -46,10 +47,12 @@ export function estatistic(data: TransactionNormalized[] | null): EstatisticInte
         }
 
         // Total de vendas por dia da semana
-        const diaDaSemana = new Date(atual.data).getDay()
-        console.log(diaDaSemana)
-
-
+        const dataFormatada = dateValidate(atual.data)
+        const diaDaSemana = new Date(dataFormatada).getDay()
+        console.log("começo")
+        console.log("Data"+ atual.data)
+        console.log("Dia da semana" + diaDaSemana)
+        console.log(acc.totalVendasPDia[diaDaSemana])
         acc.totalVendasPDia[diaDaSemana].vendas += 1
         
 
