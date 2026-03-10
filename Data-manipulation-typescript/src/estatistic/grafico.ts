@@ -2,7 +2,15 @@ import type { EstatisticInterface } from "./estatistic";
 
 
 export function vendasPorDia(id_grafico: string, estatistica: EstatisticInterface){
-    
+    const graficoHtml = document.getElementById(id_grafico)
+    const calculoPorcentagemDiaSemana = estatistica.totalVendasPDia.map((dia) =>{
+        return {
+        nome: dia.dia,
+        valor: dia.vendas,
+        porcentagem: dia.vendas / estatistica.totalVendas * 100
+        }
+    })
+    console.log(calculoPorcentagemDiaSemana)
 
 
 
