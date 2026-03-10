@@ -16,7 +16,9 @@ import type { TransactionNormalized } from "../Type/transactionInterface";
 
 export function estatistic(data: TransactionNormalized[] | null): EstatisticInterface | undefined{
     if (data)
+
     return data.reduce((acc, atual) =>{ 
+        acc.totalVendas += 1
 
         if (typeof atual.valor_r$ == "number"){
             acc.somaTotalValores = acc.somaTotalValores + atual.valor_r$;
@@ -40,75 +42,16 @@ export function estatistic(data: TransactionNormalized[] | null): EstatisticInte
         }
 
         else if (atual.status == "Aguardando pagamento"){
-            acc.statusAguardando =+ 1
+            acc.statusAguardando += 1
         }
 
         // Total de vendas por dia da semana
-        const data = new Date(atual.data)
-        const diaDaSemana = data.toLocaleDateString("pt-BR",{
-            weekday: "long"
-        })
-
+        const diaDaSemana = new Date(atual.data).getDay()
         console.log(diaDaSemana)
 
 
-        switch (diaDaSemana){
-            case "domingo":
-                acc.totalVendasPDia[0] += 1
-                
-                break
-            case "segunda-feira":
-                acc.totalVendasPDia[1] += 1
-                
-                break
-            case "terça-feira":
-                acc.totalVendasPDia[2] += 1
-                
-                break
-            case "quarta-feira":
-                acc.totalVendasPDia[3] += 1
-                
-                break
-            case "quinta-feira":
-                acc.totalVendasPDia[4] += 1
-                
-                break
-            case "sexta-feira":
-                acc.totalVendasPDia[5] += 1
-                
-                break
-            case "sábado":
-                acc.totalVendasPDia[6] += 1
-
-                break
-            
-        }
-        const maiorItemDosDiasDaSemana = Math.max(...acc.totalVendasPDia)
-        const indiceMaiorItemDosDiasDaSemana = acc.totalVendasPDia.indexOf(maiorItemDosDiasDaSemana)
-
-        switch (indiceMaiorItemDosDiasDaSemana){
-            case 0:
-                acc.diaComMaisVendas = "Domingo"
-                break
-            case 1:
-                acc.diaComMaisVendas = "Segunda"
-                break
-            case 2:
-                acc.diaComMaisVendas = "Terça"
-                break
-            case 3:
-                acc.diaComMaisVendas = "Quarta"
-                break
-            case 4:
-                acc.diaComMaisVendas = "Quinta"
-                break
-            case 5:
-                acc.diaComMaisVendas = "Sexta"
-                break
-            case 6:
-                acc.diaComMaisVendas = "Sábado"
-                break
-        }
+        acc.totalVendasPDia[diaDaSemana].vendas += 1
+        
 
         return acc
     },{
@@ -118,7 +61,14 @@ export function estatistic(data: TransactionNormalized[] | null): EstatisticInte
         statusPago:0,
         statusRecusadoOperadoraCartao:0,
         statusAguardando:0,
-        totalVendasPDia: [0,0,0,0,0,0,0],
+        totalVendasPDia:[{ dia: "Domingo", vendas: 0 },
+                        { dia: "Segunda", vendas: 0 },
+                        { dia: "Terça", vendas: 0 },
+                        { dia: "Quarta", vendas: 0 },
+                        { dia: "Quinta", vendas: 0 },
+                        { dia: "Sexta", vendas: 0 },
+                        { dia: "Sábado", vendas: 0 }],
+        totalVendas: 0,
         diaComMaisVendas:""
     })
 }
@@ -130,6 +80,10 @@ export interface EstatisticInterface{
         statusPago:number,
         statusRecusadoOperadoraCartao: number,
         statusAguardando: number,
-        totalVendasPDia: number[],
+        totalVendasPDia: {
+            dia: string
+            vendas: number
+        }[],
+        totalVendas: number,
         diaComMaisVendas:string
 }
