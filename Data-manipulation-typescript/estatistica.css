@@ -86,11 +86,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: end;
     height: 100%;
+}
+
+.grafico-vendas-dia-semana div p{
+    color: #6F6F6F;
 }
 .bar-grafico-vendas-dia-semana{
     background-color: #9C77FB;
-    min-height: 80px;
+    min-height: 64px;
     width: 56px;
     border-radius: 28px;
 }
