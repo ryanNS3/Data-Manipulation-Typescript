@@ -16,9 +16,8 @@ import { dateValidate } from "../Utils/dateValidate";
 
 
 export function estatistic(data: TransactionNormalized[] | null): EstatisticInterface | undefined{
-    if (data)
-
-    return data.reduce((acc, atual) =>{ 
+    if (data){
+        const calculoEstatistica = data.reduce((acc, atual) =>{ 
         acc.totalVendas += 1
 
         if (typeof atual.valor_r$ == "number"){
@@ -50,6 +49,9 @@ export function estatistic(data: TransactionNormalized[] | null): EstatisticInte
         const dataFormatada = dateValidate(atual.data)
         const diaDaSemana = new Date(dataFormatada).getDay()
         acc.totalVendasPDia[diaDaSemana].vendas += 1
+
+        // calcular dia com mais venda
+        
         
 
         return acc
@@ -68,8 +70,23 @@ export function estatistic(data: TransactionNormalized[] | null): EstatisticInte
                         { dia: "Sexta", vendas: 0 },
                         { dia: "Sábado", vendas: 0 }],
         totalVendas: 0,
-        diaComMaisVendas:""
+        diaComMaisVendas:{
+            dia: "",
+            vendas: 0
+        }
     })
+
+    const diaComMaiorVenda = calculoEstatistica.totalVendasPDia.reduce((maior, atual) =>{
+        return atual.vendas > maior.vendas ? atual : maior
+    })
+
+    calculoEstatistica.diaComMaisVendas = diaComMaiorVenda
+
+    return calculoEstatistica
+
+    }
+
+    
 }
 
 export interface EstatisticInterface{
@@ -84,5 +101,8 @@ export interface EstatisticInterface{
             vendas: number
         }[],
         totalVendas: number,
-        diaComMaisVendas:string
+        diaComMaisVendas:{
+            dia: string,
+            vendas: number
+        }
 }
