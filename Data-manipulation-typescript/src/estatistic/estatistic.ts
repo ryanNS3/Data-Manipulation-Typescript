@@ -49,10 +49,6 @@ export function estatistic(data: TransactionNormalized[] | null): EstatisticInte
         // Total de vendas por dia da semana
         const dataFormatada = dateValidate(atual.data)
         const diaDaSemana = new Date(dataFormatada).getDay()
-        console.log("começo")
-        console.log("Data"+ atual.data)
-        console.log("Dia da semana" + diaDaSemana)
-        console.log(acc.totalVendasPDia[diaDaSemana])
         acc.totalVendasPDia[diaDaSemana].vendas += 1
         
 
