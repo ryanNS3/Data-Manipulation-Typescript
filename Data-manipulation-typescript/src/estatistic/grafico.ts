@@ -12,11 +12,13 @@ export function vendasPorDia(id_grafico: string, estatistica: EstatisticInterfac
     })
     if (graficoHtml instanceof HTMLElement){
         estatisticComPorcentagemDiaSemana.map((item) =>{
-        const eMaiorValorDeVendas = estatistica.diaComMaisVendas == item.nome ? true : false
+        console.log("dia com mais venda" + estatistica.diaComMaisVendas)
+        const eMaiorValorDeVendas = estatistica.diaComMaisVendas.dia == item.nome ? true : false
         graficoHtml.innerHTML += `
         <div>
-          <div style=height:${item.porcentagem}% class="bar-grafico-vendas-dia-semana ${eMaiorValorDeVendas ? "dia-com-maior-venda" : ""}"></div>
-          <p class="h6">${item.nome}</p>
+            <p>${Math.ceil(item.porcentagem)}%</p>
+          <div style=height:${item.porcentagem * 2}% class="bar-grafico-vendas-dia-semana ${eMaiorValorDeVendas ? "dia-com-maior-venda" : ""}"></div>
+          <p class="h6" style=${eMaiorValorDeVendas ? "color:black" : ""}>${item.nome}</p>
         </div>
 
         `
