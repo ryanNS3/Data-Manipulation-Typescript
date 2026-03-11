@@ -3,14 +3,28 @@ import type { EstatisticInterface } from "./estatistic";
 
 export function vendasPorDia(id_grafico: string, estatistica: EstatisticInterface){
     const graficoHtml = document.getElementById(id_grafico)
-    const calculoPorcentagemDiaSemana = estatistica.totalVendasPDia.map((dia) =>{
+    const estatisticComPorcentagemDiaSemana = estatistica.totalVendasPDia.map((dia) =>{
         return {
         nome: dia.dia,
         valor: dia.vendas,
         porcentagem: dia.vendas / estatistica.totalVendas * 100
         }
     })
-    console.log(calculoPorcentagemDiaSemana)
+    if (graficoHtml instanceof HTMLElement){
+        estatisticComPorcentagemDiaSemana.map((item) =>{
+        const eMaiorValorDeVendas = estatistica.diaComMaisVendas == item.nome ? true : false
+        graficoHtml.innerHTML += `
+        <div>
+          <div style=height:${item.porcentagem}% class="bar-grafico-vendas-dia-semana ${eMaiorValorDeVendas ? "dia-com-maior-venda" : ""}"></div>
+          <p class="h6">${item.nome}</p>
+        </div>
+
+        `
+    })
+    }
+    
+    
+    
 
 
 
