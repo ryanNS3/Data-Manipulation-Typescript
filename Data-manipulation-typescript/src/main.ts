@@ -1,5 +1,5 @@
 import { estatistic } from "./estatistic/estatistic";
-import { statusPagamento } from "./estatistic/grafico";
+import { statusPagamento, vendasPorDia } from "./estatistic/grafico";
 import { fetchTransaction } from "./Service/api";
 import type { Transaction } from "./Type/transactionInterface";
 import { normalizeJson } from "./Utils/normalizar";
@@ -62,6 +62,6 @@ if (dataAPINormalizeted && linhasTabela instanceof HTMLElement){
 // carregando os itens do grafico de status pagamento
 
 if (estatistica){
-
+    vendasPorDia("grafico-vendas-dia-semana", estatistica)
     statusPagamento("inner-grafico-status-pagamento",estatistica)
 }
