@@ -32,14 +32,25 @@ import { normalizeJson } from "./Utils/normalizar";
 const dataAPI = await fetchTransaction<Transaction[]>("https://api.origamid.dev/json/transacoes.json")
 const dataAPINormalizeted = normalizeJson(dataAPI)
 const linhasTabela = document.getElementById("itensTabela")
+const valorTotal = document.getElementById("valor-total")
+const valorQtdCredito = document.getElementById("valor-qtd-credito")
+const valorQtdBoleto = document.getElementById("valor-qtd-boleto")
 
-
-console.log(dataAPINormalizeted)
 // mostrando as transaçoes na tabela
-console.log(estatistic(dataAPINormalizeted))
 
 const estatistica = estatistic(dataAPINormalizeted? dataAPINormalizeted : null )
 
+// Logica do consumo de API da página de estatística
+
+
+if (dataAPINormalizeted && valorTotal instanceof HTMLElement){
+    valorTotal.innerText = `${String(estatistica?.totalVendas)}`
+}
+
+if (dataAPINormalizeted && valorQtdBoleto instanceof HTMLElement && valorQtdCredito instanceof HTMLElement){
+    valorQtdBoleto.innerText = `${estatistica?.transacaoBoleto}`
+    valorQtdCredito.innerText = `${estatistica?.transacaoCredito}`
+}
 
 if (dataAPINormalizeted && linhasTabela instanceof HTMLElement){
     dataAPINormalizeted.map((item) =>{
