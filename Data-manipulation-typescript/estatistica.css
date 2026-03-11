@@ -46,13 +46,15 @@
     margin-top: 58px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: stretch;
     gap: 20px;
 }
 
 .box-grafico{
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    height: 90%;
+    justify-content: space-between;
     margin-top: 32px;
     border-radius: 16px;
     padding: 34px 20px;
@@ -66,7 +68,6 @@
 
 /* Status de pagamento */
 .barra-status-pagamento{
-    min-height: 44px;
     padding: 16px;
     border-radius: 64px;
     background-color: #DBDBDB;
@@ -74,4 +75,25 @@
 .maior-item-status-pagamento{
     background-color: #0EF36D;
 }
+.grafico-vendas-dia-semana{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-content: end;
 
+}
+.grafico-vendas-dia-semana div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+.bar-grafico-vendas-dia-semana{
+    background-color: #9C77FB;
+    min-height: 80px;
+    width: 56px;
+    border-radius: 28px;
+}
+.dia-com-maior-venda{
+    background-color: #4F0EF3;
+}
