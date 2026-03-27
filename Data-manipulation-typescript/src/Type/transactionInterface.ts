@@ -20,7 +20,7 @@ export interface Transaction{
     ["Forma de Pagamento"]: "Boleto" | "Cartão de crédito"
     ID: number
     Nome: string
-    Status: "Paga" | "Recusada pela operadora de cartão" | "Paga"
+    Status: "Paga" | "Recusada pela operadora de cartão" 
     ["Valor (R$)"]: string
 
 }
