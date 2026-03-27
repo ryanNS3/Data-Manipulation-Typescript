@@ -57,13 +57,11 @@ if (dataAPINormalizeted && linhasTabela instanceof HTMLElement){
        linhasTabela.innerHTML += `
         <tr>
             <td>${item.id}</td>
-            <td>${item.nome}</td>
             <td>${item.email}</td>
-            <td>${item.cliente_novo == 1 ? "Sim" : "não"}</td>
-            <td>${item.data}</td>
             <td>${item.status}</td>
+            <td>${item.cliente_novo == 1 ? "Sim" : "não"}</td>
             <td>${item.valor_r$}</td>
-            <td>${item.forma_de_pagamento}</td>
+            <td>${item.data}</td>
         </tr>
        `
     })
