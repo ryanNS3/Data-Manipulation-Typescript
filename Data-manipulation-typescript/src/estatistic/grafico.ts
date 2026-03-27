@@ -16,8 +16,8 @@ export function vendasPorDia(id_grafico: string, estatistica: EstatisticInterfac
         const eMaiorValorDeVendas = estatistica.diaComMaisVendas.dia == item.nome ? true : false
         graficoHtml.innerHTML += `
         <div>
-            <p>${Math.ceil(item.porcentagem)}%</p>
-          <div style=height:${item.porcentagem * 2}% class="bar-grafico-vendas-dia-semana ${eMaiorValorDeVendas ? "dia-com-maior-venda" : ""}"></div>
+          <p class="porcentagem-grafico h6">${Math.ceil(item.porcentagem)}%</p>
+          <div style=height:${item.porcentagem *1.2}% class="bar-grafico-vendas-dia-semana ${eMaiorValorDeVendas ? "dia-com-maior-venda" : ""}"></div>
           <p class="h6" style=${eMaiorValorDeVendas ? "color:black" : ""}>${item.nome}</p>
         </div>
 
