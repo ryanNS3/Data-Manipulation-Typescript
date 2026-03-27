@@ -1,0 +1,61 @@
+tbody {
+  display: block;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+thead, tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+#tabela-transacoes{
+    width: 100%;
+    background-color: #ffffff81;
+    border: 2px solid #D6D6D6;
+    border-radius: 16px;
+    padding: 22px 34px;
+}
+
+#inner-tabela-transacoes{
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.linha-tabela{
+    display: block;
+    width: 100%;
+    background-color: black;
+    height: 1px;
+}
+
+.titulo-tabela-transacoes{
+    text-align: start;
+    border-bottom: 1px solid #E6E6E6;
+    padding-bottom: 20px ;
+}
+
+#header-tabela-transacoes{
+    background-color: #F7F7F7;
+    border: 1px solid #DADADA;
+    border-radius: 16px;
+}
+
+
+
+#header-tabela-transacoes td::first-child{
+    border-radius: 16px;
+}
+
+#header-tabela-transacoes td::last-child{
+    border-radius: 16px;
+}
+
+
+#itensTabela{
+    display: block;
+    max-height: 400px;
+    overflow-y: auto;
+}
